@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>PayZippy PHP SDK by payzippy</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>PayZippy PHP SDK</h1>
+        <p>PHP SDK for interacting with PayZippy charging, query and refund APIs</p>
+
+        <p class="view"><a href="https://github.com/payzippy/php-sdk">View the Project on GitHub <small>payzippy/php-sdk</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/payzippy/php-sdk/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/payzippy/php-sdk/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/payzippy/php-sdk">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>This is the PHP SDK for PayZippy Merchant API.</p>
+
+<h1>
+<a name="setup-instructions" class="anchor" href="#setup-instructions"><span class="octicon octicon-link"></span></a>Setup Instructions</h1>
+
+<ol>
+<li><p>Clone the repository to get php-sdk folder having index.php file, examples and payzippy-sdk folders. </p></li>
+<li><p>To use the sample code, copy the payzippy files &amp; directories to a directory of your choice. It can be server's document root of you web server. (i.e. where your current php files, for your website, are stored)</p></li>
+<li><p>Open php-sdk/payzippy-sdk/Config.php file and set up your config details such as Merchant ID, Secret Key, Callback URL. The examples won't work without setting up the config details. You can also set the UI mode to redirect or iframe (details in point 6).</p></li>
+<li><p>For the examples included, the callback url should point to the charging_response.php file under examples/response folder. So, if you access your site locally as http://localhost/, then callback url http://localhost/php-sdk/examples/response/charging_response.php</p></li>
+<li><p>You can see SDKs brief documentation by browsing to http://localhost/php-sdk. All the example will be available there in the "SDK Integration Examples" link in the header.</p></li>
+<li>
+<p>There are 3 examples included for using the Charging API.</p>
+
+<p>charging-redirect - Using this example, when the user clicks on Buy button, he would be redirected to Payzippy's website to enter his card details.</p>
+
+<p>charging-iframe - Using this example, when the user clicks on Buy button, the form to enter his card details would be displayed inside your HTML iframe element.</p>
+
+<p>charging-master - This is the master example and has all parameters that you can pass to the charging API.</p>
+</li>
+<li><p>Further documentation on creating a charging request, parsing the response are included in the corresponding code files.</p></li>
+</ol>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/payzippy">payzippy</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
