@@ -1,6 +1,6 @@
 <?php
-require_once("Config.php");
-require_once("Constants.php");
+require_once(dirname(__FILE__)."/Config.php");
+require_once(dirname(__FILE__)."/Constants.php");
 
 class Utils
 {

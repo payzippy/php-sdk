@@ -1,6 +1,6 @@
 <?php
-include "../common/header.php";
-require("../../payzippy-sdk/RefundRequest.php");
+include dirname(__FILE__)."/../common/header.php";
+require dirname(__FILE__)."/../../payzippy-sdk/RefundRequest.php";
 
 try {
     $pz_refund_request = new RefundRequest();

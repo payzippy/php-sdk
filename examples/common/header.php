@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Payzippy Integration Examples</title>
-    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="dirname(__FILE__)/../../css/bootstrap.css" rel="stylesheet" type="text/css">
     <style>
         .required {
             font-weight: bold;

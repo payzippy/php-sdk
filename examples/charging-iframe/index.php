@@ -1,5 +1,5 @@
 <?php
-include "../common/header.php";
+include dirname(__FILE__)."/../common/header.php";
 $order_id = "MT" . (string)rand(100000, 999999);
 ?>
 

@@ -1,6 +1,6 @@
 <?php
-include "../common/header.php";
-require_once("../../payzippy-sdk/QueryRequest.php");
+include dirname(__FILE__)."/../common/header.php";
+require dirname(__FILE__)."/../../payzippy-sdk/QueryRequest.php";
 
 try {
     // To perform a query, get an instance of the QueryRequest

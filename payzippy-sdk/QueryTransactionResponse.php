@@ -1,6 +1,6 @@
 <?php
-require_once("Utils.php");
-require_once("Constants.php");
+require_once(dirname(__FILE__).'/Utils.php');
+require_once(dirname(__FILE__).'/Constants.php');
 
 class QueryTransactionResponse
 {

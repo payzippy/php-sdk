@@ -1,8 +1,8 @@
 <?php
-require_once("Utils.php");
-require_once("Constants.php");
-require_once("Config.php");
-require_once("RefundResponse.php");
+require_once(dirname(__FILE__)."/Utils.php");
+require_once(dirname(__FILE__)."/Constants.php");
+require_once(dirname(__FILE__)."/Config.php");
+require_once(dirname(__FILE__)."/RefundResponse.php");
 
 class RefundRequest
 {
@@ -241,6 +241,7 @@ class RefundRequest
         curl_setopt($curl, CURLOPT_POST, 1);
         curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($this->params));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        // curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
 
         $response = curl_exec($curl);
         if (!$response) {

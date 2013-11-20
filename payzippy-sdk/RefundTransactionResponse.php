@@ -1,5 +1,5 @@
 <?php
-require_once("Utils.php");
+require_once(dirname(__FILE__)."/Utils.php");
 
 class RefundTransactionResponse
 {

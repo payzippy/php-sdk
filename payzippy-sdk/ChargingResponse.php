@@ -1,6 +1,6 @@
 <?php
-require_once("Constants.php");
-require_once("Utils.php");
+require_once(dirname(__FILE__).'/Config.php');
+require_once(dirname(__FILE__).'/Utils.php');
 
 class ChargingResponse
 {
@@ -58,7 +58,11 @@ class ChargingResponse
 
     public function get_emi_months()
     {
-        return $this->params[Constants::PARAMETER_EMI_MONTHS];
+        $emi_months_exists = array_key_exists(Constants::PARAMETER_EMI_MONTHS, $this->params);
+        if ($emi_months_exists) {
+            return $this->params[Constants::PARAMETER_EMI_MONTHS];    
+        } 
+        return 0;
     }
 
     public function get_transaction_amount()

@@ -1,5 +1,5 @@
 <?php
-include "../common/header.php";
+include dirname(__FILE__)."/../common/header.php";
 ?>
 
 <form class="form-horizontal" method="post" action="../response/refund_response.php">

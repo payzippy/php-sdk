@@ -1,6 +1,6 @@
 <?php
-include "../common/header.php";
-require("../../payzippy-sdk/ChargingResponse.php");
+include dirname(__FILE__)."/../common/header.php";
+require dirname(__FILE__)."/../../payzippy-sdk/ChargingResponse.php";
 
 // This file corresponds to your Charging Response Callback URL.
 

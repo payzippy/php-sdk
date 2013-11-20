@@ -1,6 +1,6 @@
 <?php
-include "../common/header.php";
-require("../../payzippy-sdk/ChargingRequest.php");
+include dirname(__FILE__)."/../common/header.php";
+require dirname(__FILE__)."/../../payzippy-sdk/ChargingRequest.php";
 
 // Convert the "transaction_amount" to Paisa.
 $transaction_amount = $_POST["transaction_amount"];
