@@ -1,5 +1,5 @@
 <?php
-class Constants
+class PZ_Constants
 {
     private static $PARAMETER_REQUIREMENTS = array(
         "transaction_type" => array("SALE", "REFUND"),

@@ -14,6 +14,7 @@ $pz_charging->set_buyer_email_address($_POST["buyer_email_address"])
     ->set_merchant_transaction_id($_POST["merchant_transaction_id"])
     ->set_transaction_amount($transaction_amount)
     ->set_payment_method($_POST["payment_method"])
+    ->set_bank_name($_POST["bank_name"])
     ->set_ui_mode($_POST["ui_mode"]);
 
 // Finally, call the charge function, to get the charging_arr.

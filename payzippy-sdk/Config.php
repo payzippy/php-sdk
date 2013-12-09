@@ -1,6 +1,6 @@
 <?php
 
-final class Config
+final class PZ_Config
 {
     const MERCHANT_ID = ""; // Your Merchant ID
     const SECRET_KEY = ""; // Your Secret Key. Do not share this.

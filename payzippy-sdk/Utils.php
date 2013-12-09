@@ -2,7 +2,7 @@
 require_once(dirname(__FILE__)."/Config.php");
 require_once(dirname(__FILE__)."/Constants.php");
 
-class Utils
+class PZ_Utils
 {
     public static function flatten_array($data)
     {
@@ -15,7 +15,7 @@ class Utils
         ksort($data);
 
         foreach ($data as $key => $value) {
-            if ($key === Constants::PARAMETER_HASH) {
+            if ($key === PZ_Constants::PARAMETER_HASH) {
                 continue;
             } elseif (is_array($value)) {
                 $str .= self::flatten_array($value);
@@ -35,10 +35,10 @@ class Utils
 
     public static function generate_hash($params)
     {
-        $hash_method = $params[Constants::PARAMETER_HASH_METHOD];
+        $hash_method = $params[PZ_Constants::PARAMETER_HASH_METHOD];
 
         $str = self::flatten_array($params);
-        $str .= Config::SECRET_KEY;
+        $str .= PZ_Config::SECRET_KEY;
         return hash(strtolower($hash_method), $str);
     }
 

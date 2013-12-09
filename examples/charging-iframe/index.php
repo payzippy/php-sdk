@@ -9,7 +9,7 @@ $order_id = "MT" . (string)rand(100000, 999999);
         inside a HTML IFRAME.
     </p>
     <p class="text-info">
-        This examples includes the minimum required parameters that must be sent.
+        This examples includes the minimum required parameters that must be sent. Bank Name is required only for NET and EMI.
     </p>
 </div>
 
@@ -43,11 +43,22 @@ $order_id = "MT" . (string)rand(100000, 999999);
 
                 <div class="controls">
                     <select id="payment_method" name="payment_method" class="input-xlarge">
+                        <option>PAYZIPPY</option>
                         <option>CREDIT</option>
                         <option>DEBIT</option>
                         <option>NET</option>
                         <option>EMI</option>
                     </select>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="control-group">
+                <label class="control-label">Bank Name</label>
+
+                <div class="controls">
+                    <input id="bank_name" name="bank_name" type="text" value="HDFC" class="input-xlarge">
+
                 </div>
             </div>
 
