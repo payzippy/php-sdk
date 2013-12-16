@@ -64,6 +64,18 @@ class PZ_Utils
         return $return_params;
     }
 
+    public static function filter_blacklist_params($params, $blacklisted_params)
+    {
+        $return_params = array();
+        foreach ($params as $key => $value) {
+            if (!in_array($key, $blacklisted_params)) {
+                $return_params[$key] = $value;
+            }
+        }
+
+        return $return_params;
+    }
+
 }
 
 

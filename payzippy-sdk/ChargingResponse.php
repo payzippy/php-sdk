@@ -8,7 +8,7 @@ class ChargingResponse
 
     function __construct($params)
     {
-        $this->params = $params;
+        $this->params = PZ_Utils::filter_blacklist_params($params, PZ_Constants::blacklisted_params());
     }
 
     public function get_merchant_id()

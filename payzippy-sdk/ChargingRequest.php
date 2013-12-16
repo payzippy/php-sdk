@@ -324,7 +324,9 @@ class ChargingRequest
         }
 
         if (!PZ_Utils::is_valid_parameter($this->params[PZ_Constants::PARAMETER_TRANSACTION_AMOUNT])
-            || !ctype_digit($this->params[PZ_Constants::PARAMETER_TRANSACTION_AMOUNT])
+            || !(ctype_digit($this->params[PZ_Constants::PARAMETER_TRANSACTION_AMOUNT])
+                    || is_int($this->params[PZ_Constants::PARAMETER_TRANSACTION_AMOUNT])
+                )
             || $this->params[PZ_Constants::PARAMETER_TRANSACTION_AMOUNT] <= 0
         ) {
             $return_obj["message"] = PZ_Constants::INVALID_TRANSACTION_AMOUNT;

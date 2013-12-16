@@ -13,6 +13,16 @@ class PZ_Constants
         return self::$PARAMETER_REQUIREMENTS[$parameter_name];
     }
 
+    private static $blacklisted_params = array(
+       // "blacklist_parameter_1",
+       // "blacklist_parameter_2",
+    );
+
+    public static function blacklisted_params()
+    {
+        return self::$blacklisted_params;
+    }
+
     const INVALID_BANK_NAME = "BANK NAME NOT SET";
     const INVALID_CURRENCY = "CURRENCY NOT SET";
     const INVALID_EMAIL_ADDRESS = "INVALID EMAIL ADDRESS";
