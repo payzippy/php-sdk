@@ -67,5 +67,5 @@ and set its "src" attribute to $charging_object["url"]
 <iframe src="<?php echo $charging_arr["url"]; ?>" height="60%" width="100%"></iframe>
 
 <?php
-include "../common/footer.php";
+include dirname(__FILE__)."/../common/footer.php";
 ?>

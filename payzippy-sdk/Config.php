@@ -7,7 +7,7 @@ final class PZ_Config
     const TRANSACTION_TYPE = "SALE";
     const CURRENCY = "INR";
     const UI_MODE = "REDIRECT"; // UI Integration - REDIRECT or IFRAME
-    const HASH_METHOD = "MD5"; // MD5 or SHA256
+    const HASH_METHOD = "SHA256"; // MD5 or SHA256
     const MERCHANT_KEY_ID = ""; // Your Merchant Key ID
     const CALLBACK_URL = ""; // Your callback URL
 

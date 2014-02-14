@@ -20,17 +20,56 @@ class ChargingRequest
         $this->charging_api_url = PZ_Config::API_BASE . PZ_Config::API_CHARGING . "/" . PZ_Config::API_VERSION;
     }
 
+    // =============================================
+    // Mandatory parameters initialized by PZ_Config
+    // =============================================
+
     public function set_merchant_id($value)
     {
         $this->params[PZ_Constants::PARAMETER_MERCHANT_ID] = $value;
         return $this;
     }
 
-    public function set_terminal_id($value)
+    public function set_merchant_key_id($value)
     {
-        $this->params[PZ_Constants::PARAMETER_TERMINAL_ID] = $value;
+        $this->params[PZ_Constants::PARAMETER_MERCHANT_KEY_ID] = $value;
         return $this;
     }
+
+    public function set_transaction_type($value)
+    {
+        $this->params[PZ_Constants::PARAMETER_TRANSACTION_TYPE] = $value;
+        return $this;
+    }
+
+    public function set_ui_mode($value)
+    {
+        $this->params[PZ_Constants::PARAMETER_UI_MODE] = $value;
+        return $this;
+    }
+
+    public function set_hash_method($value)
+    {
+        $this->params[PZ_Constants::PARAMETER_HASH_METHOD] = $value;
+        return $this;
+    }
+
+    public function set_currency($value)
+    {
+        $this->params[PZ_Constants::PARAMETER_CURRENCY] = $value;
+        return $this;
+    }
+
+    public function set_callback_url($value)
+    {
+        $this->params[PZ_Constants::PARAMETER_CALLBACK_URL] = $value;
+        return $this;
+    }
+
+
+    // ==========================================================
+    // Mandatory parameters need to be initialized by Application
+    // ==========================================================
 
     public function set_buyer_email_address($value)
     {
@@ -38,11 +77,63 @@ class ChargingRequest
         return $this;
     }
 
-    public function set_timegmt()
+    public function set_merchant_transaction_id($value)
     {
-        $this->params[PZ_Constants::PARAMETER_TIMEGMT] = round(microtime(true) * 1000);
+        $this->params[PZ_Constants::PARAMETER_MERCHANT_TRANSACTION_ID] = $value;
         return $this;
     }
+
+    public function set_transaction_amount($value)
+    {
+        $this->params[PZ_Constants::PARAMETER_TRANSACTION_AMOUNT] = $value;
+        return $this;
+    }
+
+
+    // ===============================================
+    // Optional parameters related to merchant details
+    // ===============================================
+
+    public function set_terminal_id($value)
+    {
+        $this->params[PZ_Constants::PARAMETER_TERMINAL_ID] = $value;
+        return $this;
+    }
+
+    public function set_udf1($value)
+    {
+        $this->params[PZ_Constants::PARAMETER_UDF1] = $value;
+        return $this;
+    }
+
+    public function set_udf2($value)
+    {
+        $this->params[PZ_Constants::PARAMETER_UDF2] = $value;
+        return $this;
+    }
+
+    public function set_udf3($value)
+    {
+        $this->params[PZ_Constants::PARAMETER_UDF3] = $value;
+        return $this;
+    }
+
+    public function set_udf4($value)
+    {
+        $this->params[PZ_Constants::PARAMETER_UDF4] = $value;
+        return $this;
+    }
+
+    public function set_udf5($value)
+    {
+        $this->params[PZ_Constants::PARAMETER_UDF5] = $value;
+        return $this;
+    }
+
+
+    // ============================================
+    // Optional parameters related to buyer details
+    // ============================================
 
     public function set_buyer_phone_no($value)
     {
@@ -86,33 +177,14 @@ class ChargingRequest
         return $this;
     }
 
-    public function set_merchant_transaction_id($value)
-    {
-        $this->params[PZ_Constants::PARAMETER_MERCHANT_TRANSACTION_ID] = $value;
-        return $this;
-    }
 
-    public function set_transaction_type($value)
-    {
-        $this->params[PZ_Constants::PARAMETER_TRANSACTION_TYPE] = $value;
-        return $this;
-    }
-
-    public function set_transaction_amount($value)
-    {
-        $this->params[PZ_Constants::PARAMETER_TRANSACTION_AMOUNT] = $value;
-        return $this;
-    }
+    // ==================================================
+    // Optional parameters related to transaction details
+    // ==================================================
 
     public function set_payment_method($value)
     {
         $this->params[PZ_Constants::PARAMETER_PAYMENT_METHOD] = $value;
-        return $this;
-    }
-
-    public function set_bank_name($value)
-    {
-        $this->params[PZ_Constants::PARAMETER_BANK_NAME] = $value;
         return $this;
     }
 
@@ -122,47 +194,16 @@ class ChargingRequest
         return $this;
     }
 
-    public function set_currency($value)
+    public function set_bank_name($value)
     {
-        $this->params[PZ_Constants::PARAMETER_CURRENCY] = $value;
+        $this->params[PZ_Constants::PARAMETER_BANK_NAME] = $value;
         return $this;
     }
 
-    public function set_source($value)
-    {
-        $this->params[PZ_Constants::PARAMETER_SOURCE] = $value;
-        return $this;
-    }
 
-    public function set_product_info1($value)
-    {
-        $this->params[PZ_Constants::PARAMETER_PRODUCT_INFO1] = $value;
-        return $this;
-    }
-
-    public function set_product_info2($value)
-    {
-        $this->params[PZ_Constants::PARAMETER_PRODUCT_INFO2] = $value;
-        return $this;
-    }
-
-    public function set_product_info3($value)
-    {
-        $this->params[PZ_Constants::PARAMETER_PRODUCT_INFO3] = $value;
-        return $this;
-    }
-
-    public function set_ui_mode($value)
-    {
-        $this->params[PZ_Constants::PARAMETER_UI_MODE] = $value;
-        return $this;
-    }
-
-    public function set_callback_url($value)
-    {
-        $this->params[PZ_Constants::PARAMETER_CALLBACK_URL] = $value;
-        return $this;
-    }
+    // ==============================================
+    // Optional parameters related to billing details
+    // ==============================================
 
     public function set_billing_name($value)
     {
@@ -199,6 +240,11 @@ class ChargingRequest
         $this->params[PZ_Constants::PARAMETER_BILLING_COUNTRY] = $value;
         return $this;
     }
+
+
+    // ==============================================
+    // Optional parameters useful for fraud detection
+    // ==============================================
 
     public function set_min_sla($value)
     {
@@ -242,45 +288,84 @@ class ChargingRequest
         return $this;
     }
 
-    public function set_udf1($value)
+
+    // ==================================================
+    // Optional parameters related to the product details
+    // ==================================================
+
+    public function set_source($value)
     {
-        $this->params[PZ_Constants::PARAMETER_UDF1] = $value;
+        $this->params[PZ_Constants::PARAMETER_SOURCE] = $value;
         return $this;
     }
 
-    public function set_udf2($value)
+    public function set_product_info1($value)
     {
-        $this->params[PZ_Constants::PARAMETER_UDF2] = $value;
+        $this->params[PZ_Constants::PARAMETER_PRODUCT_INFO1] = $value;
         return $this;
     }
 
-    public function set_udf3($value)
+    public function set_product_info2($value)
     {
-        $this->params[PZ_Constants::PARAMETER_UDF3] = $value;
+        $this->params[PZ_Constants::PARAMETER_PRODUCT_INFO2] = $value;
         return $this;
     }
 
-    public function set_udf4($value)
+    public function set_product_info3($value)
     {
-        $this->params[PZ_Constants::PARAMETER_UDF4] = $value;
+        $this->params[PZ_Constants::PARAMETER_PRODUCT_INFO3] = $value;
         return $this;
     }
 
-    public function set_udf5($value)
+
+    // ============================================================================
+    // Card capture parameters, to be used only when payment_method is CARD_CAPTURE
+    // ============================================================================
+
+    public function set_create_payzippy_account($value)
     {
-        $this->params[PZ_Constants::PARAMETER_UDF5] = $value;
+        $this->params[PZ_Constants::PARAMETER_CREATE_PAYZIPPY_ACCOUNT] = $value;
         return $this;
     }
 
-    public function set_hash_method($value)
+    public function set_card_number($value)
     {
-        $this->params[PZ_Constants::PARAMETER_HASH_METHOD] = $value;
+        $this->params[PZ_Constants::PARAMETER_CARD_NUMBER] = $value;
         return $this;
     }
 
-    public function set_merchant_key_id($value)
+    public function set_cvv($value)
     {
-        $this->params[PZ_Constants::PARAMETER_MERCHANT_KEY_ID] = $value;
+        $this->params[PZ_Constants::PARAMETER_CVV] = $value;
+        return $this;
+    }
+
+    public function set_name_on_card($value)
+    {
+        $this->params[PZ_Constants::PARAMETER_NAME_ON_CARD] = $value;
+        return $this;
+    }
+
+    public function set_expiry_month($value)
+    {
+        $this->params[PZ_Constants::PARAMETER_EXPIRY_MONTH] = $value;
+        return $this;
+    }
+
+    public function set_expiry_year($value)
+    {
+        $this->params[PZ_Constants::PARAMETER_EXPIRY_YEAR] = $value;
+        return $this;
+    }
+
+
+    // =================================================
+    // Parameters automatically configured during charge
+    // =================================================
+
+    public function set_timegmt()
+    {
+        $this->params[PZ_Constants::PARAMETER_TIMEGMT] = round(microtime(true) * 1000);
         return $this;
     }
 
@@ -290,12 +375,19 @@ class ChargingRequest
         return $this;
     }
 
+
+    // ======================================
+    // Charge method, and its helping methods
+    // ======================================
+
     private function validate()
     {
         $return_obj = array(
             "status" => FALSE,
             "message" => NULL,
         );
+
+        // Check for mandatory parameters
 
         if (!PZ_Utils::is_valid_parameter($this->params[PZ_Constants::PARAMETER_MERCHANT_ID],
             PZ_Constants::MAX_LEN_MERCHANT_ID)
@@ -305,14 +397,14 @@ class ChargingRequest
         }
 
         if (!PZ_Utils::is_valid_parameter($this->params[PZ_Constants::PARAMETER_BUYER_EMAIL_ADDRESS],
-            PZ_Constants::MAX_LEN_EMAIL)
+            PZ_Constants::MAX_LEN_BUYER_EMAIL_ADDRESS)
         ) {
             $return_obj["message"] = PZ_Constants::INVALID_EMAIL_ADDRESS;
             return $return_obj;
         }
 
         if (!PZ_Utils::is_valid_parameter($this->params[PZ_Constants::PARAMETER_MERCHANT_TRANSACTION_ID],
-            PZ_Constants::MAX_LEN_TRANSACTION_ID)
+            PZ_Constants::MAX_LEN_MERCHANT_TRANSACTION_ID)
         ) {
             $return_obj["message"] = PZ_Constants::INVALID_MERCHANT_TRANSACTION_ID;
             return $return_obj;
@@ -323,52 +415,8 @@ class ChargingRequest
             return $return_obj;
         }
 
-        if (!PZ_Utils::is_valid_parameter($this->params[PZ_Constants::PARAMETER_TRANSACTION_AMOUNT])
-            || !(ctype_digit($this->params[PZ_Constants::PARAMETER_TRANSACTION_AMOUNT])
-                    || is_int($this->params[PZ_Constants::PARAMETER_TRANSACTION_AMOUNT])
-                )
-            || $this->params[PZ_Constants::PARAMETER_TRANSACTION_AMOUNT] <= 0
-        ) {
+        if ($this->invalid_positive_number(PZ_Constants::PARAMETER_TRANSACTION_AMOUNT)) {
             $return_obj["message"] = PZ_Constants::INVALID_TRANSACTION_AMOUNT;
-            return $return_obj;
-        }
-
-        if (!PZ_Utils::is_valid_parameter($this->params[PZ_Constants::PARAMETER_PAYMENT_METHOD])
-            || !in_array($this->params[PZ_Constants::PARAMETER_PAYMENT_METHOD],
-                PZ_Constants::PARAMETER_REQUIREMENTS(PZ_Constants::PARAMETER_PAYMENT_METHOD))
-        ) {
-            $return_obj["message"] = PZ_Constants::INVALID_PAYMENT_METHOD;
-            return $return_obj;
-        }
-
-        if ($this->params[PZ_Constants::PARAMETER_PAYMENT_METHOD] == PZ_Constants::PAYMENT_MODE_EMI
-            && (!PZ_Utils::is_valid_parameter($this->params[PZ_Constants::PARAMETER_EMI_MONTHS])
-                || !ctype_digit($this->params[PZ_Constants::PARAMETER_EMI_MONTHS])
-                || $this->params[PZ_Constants::PARAMETER_EMI_MONTHS] <= 0
-            )
-        ) {
-            $return_obj["message"] = PZ_Constants::INVALID_EMI_MONTHS;
-            return $return_obj;
-        }
-
-        if (!PZ_Utils::is_valid_parameter($this->params[PZ_Constants::PARAMETER_CURRENCY])) {
-            $return_obj["message"] = PZ_Constants::INVALID_CURRENCY;
-            return $return_obj;
-        }
-
-        if (!PZ_Utils::is_valid_parameter($this->params[PZ_Constants::PARAMETER_UI_MODE])
-            || !in_array($this->params[PZ_Constants::PARAMETER_UI_MODE],
-                PZ_Constants::PARAMETER_REQUIREMENTS(PZ_Constants::PARAMETER_UI_MODE))
-        ) {
-            $return_obj["message"] = PZ_Constants::INVALID_UI_MODE;
-            return $return_obj;
-        }
-
-        if (!PZ_Utils::is_valid_parameter($this->params[PZ_Constants::PARAMETER_HASH_METHOD])
-            || !in_array($this->params[PZ_Constants::PARAMETER_HASH_METHOD],
-                PZ_Constants::PARAMETER_REQUIREMENTS(PZ_Constants::PARAMETER_HASH_METHOD))
-        ) {
-            $return_obj["message"] = PZ_Constants::INVALID_HASH_METHOD;
             return $return_obj;
         }
 
@@ -378,6 +426,82 @@ class ChargingRequest
             $return_obj["message"] = PZ_Constants::INVALID_MERCHANT_KEY_ID;
             return $return_obj;
         }
+
+        if ($this->invalid_enum(PZ_Constants::PARAMETER_UI_MODE)) {
+            $return_obj["message"] = PZ_Constants::INVALID_UI_MODE;
+            return $return_obj;
+        }
+
+        if ($this->invalid_enum(PZ_Constants::PARAMETER_HASH_METHOD)) {
+            $return_obj["message"] = PZ_Constants::INVALID_HASH_METHOD;
+            return $return_obj;
+        }
+
+        if ($this->invalid_enum(PZ_Constants::PARAMETER_CURRENCY)) {
+            $return_obj["message"] = PZ_Constants::INVALID_CURRENCY;
+            return $return_obj;
+        }
+
+
+        // Check for payment method specific parameters
+
+        if ($this->invalid_enum(PZ_Constants::PARAMETER_PAYMENT_METHOD)) {
+            $return_obj["message"] = PZ_Constants::INVALID_PAYMENT_METHOD;
+            return $return_obj;
+        }
+
+        if ($this->params[PZ_Constants::PARAMETER_PAYMENT_METHOD] == PZ_Constants::PAYMENT_MODE_EMI) {
+
+            if ($this->invalid_positive_number(PZ_Constants::PARAMETER_EMI_MONTHS))
+            {
+                $return_obj["message"] = PZ_Constants::INVALID_EMI_MONTHS;
+                return $return_obj;
+            }
+
+            if (!PZ_Utils::is_valid_parameter($this->params[PZ_Constants::PARAMETER_BANK_NAME],
+                PZ_Constants::MAX_LEN_BANK_NAME)
+            ) {
+                $return_obj["message"] = PZ_Constants::INVALID_BANK_NAME;
+                return $return_obj;
+            }
+        }
+
+        if ($this->params[PZ_Constants::PARAMETER_PAYMENT_METHOD] == PZ_Constants::PAYMENT_MODE_NET) {
+            if (!PZ_Utils::is_valid_parameter($this->params[PZ_Constants::PARAMETER_BANK_NAME],
+                PZ_Constants::MAX_LEN_BANK_NAME)
+            ) {
+                $return_obj["message"] = PZ_Constants::INVALID_BANK_NAME;
+                return $return_obj;
+            }
+        }
+
+        if ($this->params[PZ_Constants::PARAMETER_PAYMENT_METHOD] == PZ_Constants::PAYMENT_MODE_CARD_CAPTURE) {
+
+            if ($this->invalid_positive_number(PZ_Constants::PARAMETER_CARD_NUMBER, MAX_LEN_CARD_NUMBER)) {
+                $return_obj["message"] = PZ_Constants::INVALID_CARD_NUMBER;
+                return $return_obj;
+            }
+
+            if (array_key_exists(PZ_Constants::PARAMETER_CVV, $this->params)
+                && $this->invalid_positive_number(PZ_Constants::PARAMETER_CVV, MAX_LEN_CVV)
+            ) {
+                $return_obj["message"] = PZ_Constants::INVALID_CVV;
+                return $return_obj;
+            }
+
+            if ($this->invalid_positive_number(PZ_Constants::PARAMETER_EXPIRY_MONTH, MAX_LEN_EXPIRY_MONTH)) {
+                $return_obj["message"] = PZ_Constants::INVALID_EXPIRY_MONTH;
+                return $return_obj;
+            }
+
+            if ($this->invalid_positive_number(PZ_Constants::PARAMETER_EXPIRY_YEAR, MAX_LEN_EXPIRY_YEAR)) {
+                $return_obj["message"] = PZ_Constants::INVALID_EXPIRY_YEAR;
+                return $return_obj;
+            }
+        }
+
+
+        // Check for other parameters which enforce max length constraint
 
         if (array_key_exists(PZ_Constants::PARAMETER_BUYER_PHONE_NO, $this->params)
             && strlen($this->params[PZ_Constants::PARAMETER_BUYER_PHONE_NO]) > PZ_Constants::MAX_LEN_BUYER_PHONE_NO
@@ -390,27 +514,6 @@ class ChargingRequest
             && strlen($this->params[PZ_Constants::PARAMETER_BUYER_UNIQUE_ID]) > PZ_Constants::MAX_LEN_BUYER_UNIQUE_ID
         ) {
             $return_obj["message"] = PZ_Constants::INVALID_BUYER_UNIQUE_ID;
-            return $return_obj;
-        }
-
-        if (array_key_exists(PZ_Constants::PARAMETER_SHIPPING_ADDRESS, $this->params)
-            && strlen($this->params[PZ_Constants::PARAMETER_SHIPPING_ADDRESS]) > PZ_Constants::MAX_LEN_SHIPPING_ADDRESS
-        ) {
-            $return_obj["message"] = PZ_Constants::INVALID_SHIPPING_ADDRESS;
-            return $return_obj;
-        }
-
-        if (array_key_exists(PZ_Constants::PARAMETER_SHIPPING_ZIP, $this->params)
-            && strlen($this->params[PZ_Constants::PARAMETER_SHIPPING_ZIP]) > PZ_Constants::MAX_LEN_SHIPPING_ZIP
-        ) {
-            $return_obj["message"] = PZ_Constants::INVALID_SHIPPING_ZIP;
-            return $return_obj;
-        }
-
-        if (array_key_exists(PZ_Constants::PARAMETER_SHIPPING_COUNTRY, $this->params)
-            && strlen($this->params[PZ_Constants::PARAMETER_SHIPPING_COUNTRY]) > PZ_Constants::MAX_LEN_SHIPPING_COUNTRY
-        ) {
-            $return_obj["message"] = PZ_Constants::INVALID_SHIPPING_COUNTRY;
             return $return_obj;
         }
 
@@ -428,103 +531,6 @@ class ChargingRequest
             return $return_obj;
         }
 
-        if (array_key_exists(PZ_Constants::PARAMETER_BILLING_NAME, $this->params)
-            && strlen($this->params[PZ_Constants::PARAMETER_BILLING_NAME]) > PZ_Constants::MAX_LEN_BILLING_NAME
-        ) {
-            $return_obj["message"] = PZ_Constants::INVALID_BILLING_NAME;
-            return $return_obj;
-        }
-
-        if (array_key_exists(PZ_Constants::PARAMETER_BILLING_ADDRESS, $this->params)
-            && strlen($this->params[PZ_Constants::PARAMETER_BILLING_ADDRESS]) > PZ_Constants::MAX_LEN_BILLING_ADDRESS
-        ) {
-            $return_obj["message"] = PZ_Constants::INVALID_BILLING_ADDRESS;
-            return $return_obj;
-        }
-
-        if (array_key_exists(PZ_Constants::PARAMETER_BILLING_ZIP, $this->params)
-            && strlen($this->params[PZ_Constants::PARAMETER_BILLING_ZIP]) > PZ_Constants::MAX_LEN_BILLING_ZIP
-        ) {
-            $return_obj["message"] = PZ_Constants::INVALID_BILLING_ZIP;
-            return $return_obj;
-        }
-
-        if (array_key_exists(PZ_Constants::PARAMETER_MIN_SLA, $this->params)
-            && (strlen($this->params[PZ_Constants::PARAMETER_MIN_SLA]) > PZ_Constants::MAX_LEN_MIN_SLA
-                || !ctype_digit($this->params[PZ_Constants::PARAMETER_MIN_SLA])
-                || $this->params[PZ_Constants::PARAMETER_MIN_SLA] <= 0
-            )
-        ) {
-            $return_obj["message"] = PZ_Constants::INVALID_MIN_SLA;
-            return $return_obj;
-        }
-
-        if (array_key_exists(PZ_Constants::PARAMETER_ADDRESS_COUNT, $this->params)
-            && (strlen($this->params[PZ_Constants::PARAMETER_ADDRESS_COUNT]) > PZ_Constants::MAX_LEN_ADDRESS_COUNT
-                || !ctype_digit($this->params[PZ_Constants::PARAMETER_ADDRESS_COUNT])
-                || $this->params[PZ_Constants::PARAMETER_ADDRESS_COUNT] <= 0
-            )
-        ) {
-            $return_obj["message"] = PZ_Constants::INVALID_ADDRESS_COUNT;
-            return $return_obj;
-        }
-
-        if (array_key_exists(PZ_Constants::PARAMETER_ITEM_TOTAL, $this->params)
-            && strlen($this->params[PZ_Constants::PARAMETER_ITEM_TOTAL]) > PZ_Constants::MAX_LEN_ITEM_TOTAL
-        ) {
-            $return_obj["message"] = PZ_Constants::INVALID_ITEM_TOTAL;
-            return $return_obj;
-        }
-
-        if (array_key_exists(PZ_Constants::PARAMETER_ITEM_VERTICAL, $this->params)
-            && strlen($this->params[PZ_Constants::PARAMETER_ITEM_VERTICAL]) > PZ_Constants::MAX_LEN_ITEM_VERTICAL
-        ) {
-            $return_obj["message"] = PZ_Constants::INVALID_ITEM_VERTICAL;
-            return $return_obj;
-        }
-
-        if (array_key_exists(PZ_Constants::PARAMETER_TIMEGMT, $this->params)
-            && strlen($this->params[PZ_Constants::PARAMETER_TIMEGMT]) > PZ_Constants::MAX_LEN_TIMEGMT
-        ) {
-            $return_obj["message"] = PZ_Constants::INVALID_TIMEGMT;
-            return $return_obj;
-        }
-
-        if (array_key_exists(PZ_Constants::PARAMETER_UDF1, $this->params)
-            && strlen($this->params[PZ_Constants::PARAMETER_UDF1]) > PZ_Constants::MAX_LEN_UDF1
-        ) {
-            $return_obj["message"] = PZ_Constants::INVALID_UDF1;
-            return $return_obj;
-        }
-
-        if (array_key_exists(PZ_Constants::PARAMETER_UDF2, $this->params)
-            && strlen($this->params[PZ_Constants::PARAMETER_UDF2]) > PZ_Constants::MAX_LEN_UDF2
-        ) {
-            $return_obj["message"] = PZ_Constants::INVALID_UDF2;
-            return $return_obj;
-        }
-
-        if (array_key_exists(PZ_Constants::PARAMETER_UDF3, $this->params)
-            && strlen($this->params[PZ_Constants::PARAMETER_UDF3]) > PZ_Constants::MAX_LEN_UDF3
-        ) {
-            $return_obj["message"] = PZ_Constants::INVALID_UDF3;
-            return $return_obj;
-        }
-
-        if (array_key_exists(PZ_Constants::PARAMETER_UDF4, $this->params)
-            && strlen($this->params[PZ_Constants::PARAMETER_UDF4]) > PZ_Constants::MAX_LEN_UDF4
-        ) {
-            $return_obj["message"] = PZ_Constants::INVALID_UDF4;
-            return $return_obj;
-        }
-
-        if (array_key_exists(PZ_Constants::PARAMETER_UDF5, $this->params)
-            && strlen($this->params[PZ_Constants::PARAMETER_UDF5]) > PZ_Constants::MAX_LEN_UDF5
-        ) {
-            $return_obj["message"] = PZ_Constants::INVALID_UDF5;
-            return $return_obj;
-        }
-
         if (array_key_exists(PZ_Constants::PARAMETER_TERMINAL_ID, $this->params)
             && strlen($this->params[PZ_Constants::PARAMETER_TERMINAL_ID]) > PZ_Constants::MAX_LEN_TERMINAL_ID
         ) {
@@ -534,11 +540,6 @@ class ChargingRequest
 
         $return_obj["status"] = TRUE;
         return $return_obj;
-    }
-
-    private function get_charging_api_url()
-    {
-        return $this->charging_api_url;
     }
 
     public function charge()
@@ -557,6 +558,8 @@ class ChargingRequest
             return $response;
         }
 
+        $this->set_timegmt();
+
         $hash = PZ_Utils::generate_hash($this->params);
         $this->set_hash($hash);
 
@@ -572,6 +575,29 @@ class ChargingRequest
 
         $response["status"] = "OK";
         return $response;
+    }
+
+    private function invalid_enum($fieldName)
+    {
+        return (
+            !PZ_Utils::is_valid_parameter($this->params[$fieldName])
+            || !in_array($this->params[$fieldName],
+                PZ_Constants::PARAMETER_REQUIREMENTS($fieldName))
+        );
+    }
+
+    private function invalid_positive_number($fieldName, $max_length = 0)
+    {
+        return (
+            !PZ_Utils::is_valid_parameter($this->params[$fieldName], $max_length)
+            || !(ctype_digit($this->params[$fieldName]) || is_int($this->params[$fieldName]))
+            || $this->params[$fieldName] <= 0
+        );
+    }
+
+    private function get_charging_api_url()
+    {
+        return $this->charging_api_url;
     }
 }
 
