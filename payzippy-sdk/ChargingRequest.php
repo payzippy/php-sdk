@@ -558,7 +558,7 @@ class ChargingRequest
             return $response;
         }
 
-        $this->set_timegmt();
+        // $this->set_timegmt();
 
         $hash = PZ_Utils::generate_hash($this->params);
         $this->set_hash($hash);
