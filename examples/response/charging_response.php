@@ -6,7 +6,7 @@ require dirname(__FILE__)."/../../payzippy-sdk/ChargingResponse.php";
 
 // Create an instance of the ChargingResponse using the GET parameters
 // returned to the callback URL.
-$pz_charging_response = new ChargingResponse($_POST);
+$pz_charging_response = new ChargingResponse($_REQUEST);
 
 $transaction_success = $pz_charging_response->is_transaction_successful();
 $transaction_status = $pz_charging_response->get_transaction_status();
