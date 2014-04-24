@@ -148,7 +148,7 @@ class PZ_Constants
     const PARAMETER_SHIPPING_STATE = "shipping_state";
     const PARAMETER_SHIPPING_ZIP = "shipping_zip";
     const PARAMETER_SMS_NOTIFY_NUMBER = "sms_notify_number";
-    const PARAMETER_SOURCE = "php-sdk_v1.0.4";
+    const PARAMETER_SOURCE = "php-sdk|v1.0.4";
     const PARAMETER_TERMINAL_ID = "terminal_id";
     const PARAMETER_TRANSACTION_AMOUNT = "transaction_amount";
     const PARAMETER_TRANSACTION_TYPE = "transaction_type";
