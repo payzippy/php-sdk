@@ -22,3 +22,49 @@ Setup Instructions
 	charging-master - This is the master example and has all parameters that you can pass to the charging API.
 
 7. Further documentation on creating a charging request, parsing the response are included in the corresponding code files.
+
+
+```
+Sample code snippet to create a charging request object is shown below:
+
+//include the charging ChargingRequest.php
+<?php require dirname(__FILE__)."payzippy-sdk/ChargingRequest.php"
+
+//get an instance of ChargingRequest.
+$pz_charging = new ChargingRequest();
+
+//Set all the parameters that you want to send in the chargingrequest object.
+//You can also overwrite the default parameters set in the Config.php file.
+$pz_charging->set_buyer_email_address($_POST["buyer_email_address"])
+->set_merchant_transaction_id($_POST["merchant_transaction_id"])
+->set_transaction_amount($_POST[transaction_amount])
+->set_payment_method($_POST["payment_method"])
+->set_bank_name($_POST["bank_name"])
+->set_ui_mode($_POST["ui_mode"]);
+//similarly set all the mandatory parameters as shown above
+
+//and to set any optional parameter in the chargingrequest object
+->set_buyer_phone_no($_POST["buyer_phone_number"])
+->set_shipping_address($_POST["shipping_address"])
+
+//For integration using REDIRECT mode, create a new HTML form, with hidden elements.
+//Set its "action" attribute to $charging_object["url"].
+//Create hidden input elements for every key, value pair in $charging_object["params"].
+<form method="POST" action="<?php echo $charging_object["url"]?>" id="payzippyForm">
+<?php
+foreach($charging_object["params"] as $key => $value) {
+echo "";
+}
+?>
+</form>
+//and then the script to submit the form.
+<script>
+document.getElementById("payzippyForm").submit();
+</script>
+
+//For integration using IFRAME mode, create a new HTML IFRAME element
+//and set its "src" attribute to $charging_object["url"] 
+<iframe src="<?php echo $charging_object["url"]?>" height="60%" width="100%">
+</iframe>
+```
+Further documentation on creating a charging request, parsing the response are included in the corresponding code files
