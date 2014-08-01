@@ -73,7 +73,8 @@ class ChargingRequest
 
     public function set_buyer_email_address($value)
     {
-        $this->params[PZ_Constants::PARAMETER_BUYER_EMAIL_ADDRESS] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_BUYER_EMAIL_ADDRESS] = $replaced_value;
         return $this;
     }
 
@@ -102,31 +103,36 @@ class ChargingRequest
 
     public function set_udf1($value)
     {
-        $this->params[PZ_Constants::PARAMETER_UDF1] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_UDF1] = $replaced_value;
         return $this;
     }
 
     public function set_udf2($value)
     {
-        $this->params[PZ_Constants::PARAMETER_UDF2] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_UDF2] = $replaced_value;
         return $this;
     }
 
     public function set_udf3($value)
     {
-        $this->params[PZ_Constants::PARAMETER_UDF3] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_UDF3] = $replaced_value;
         return $this;
     }
 
     public function set_udf4($value)
     {
-        $this->params[PZ_Constants::PARAMETER_UDF4] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_UDF4] = $replaced_value;
         return $this;
     }
 
     public function set_udf5($value)
     {
-        $this->params[PZ_Constants::PARAMETER_UDF5] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_UDF5] = $replaced_value;
         return $this;
     }
 
@@ -149,31 +155,36 @@ class ChargingRequest
 
     public function set_shipping_address($value)
     {
-        $this->params[PZ_Constants::PARAMETER_SHIPPING_ADDRESS] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_SHIPPING_ADDRESS] = $replaced_value;
         return $this;
     }
 
     public function set_shipping_city($value)
     {
-        $this->params[PZ_Constants::PARAMETER_SHIPPING_CITY] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_SHIPPING_CITY] = $replaced_value;
         return $this;
     }
 
     public function set_shipping_state($value)
     {
-        $this->params[PZ_Constants::PARAMETER_SHIPPING_STATE] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_SHIPPING_STATE] = $replaced_value;
         return $this;
     }
 
     public function set_shipping_zip($value)
     {
-        $this->params[PZ_Constants::PARAMETER_SHIPPING_ZIP] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_SHIPPING_ZIP] = $replaced_value;
         return $this;
     }
 
     public function set_shipping_country($value)
     {
-        $this->params[PZ_Constants::PARAMETER_SHIPPING_COUNTRY] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_SHIPPING_COUNTRY] = $replaced_value;
         return $this;
     }
 
@@ -207,37 +218,43 @@ class ChargingRequest
 
     public function set_billing_name($value)
     {
-        $this->params[PZ_Constants::PARAMETER_BILLING_NAME] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_BILLING_NAME] = $replaced_value;
         return $this;
     }
 
     public function set_billing_address($value)
     {
-        $this->params[PZ_Constants::PARAMETER_BILLING_ADDRESS] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_BILLING_ADDRESS] = $replaced_value;
         return $this;
     }
 
     public function set_billing_city($value)
     {
-        $this->params[PZ_Constants::PARAMETER_BILLING_CITY] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_BILLING_CITY] = $replaced_value;
         return $this;
     }
 
     public function set_billing_state($value)
     {
-        $this->params[PZ_Constants::PARAMETER_BILLING_STATE] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_BILLING_STATE] = $replaced_value;
         return $this;
     }
 
     public function set_billing_zip($value)
     {
-        $this->params[PZ_Constants::PARAMETER_BILLING_ZIP] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_BILLING_ZIP] = $replaced_value;
         return $this;
     }
 
     public function set_billing_country($value)
     {
-        $this->params[PZ_Constants::PARAMETER_BILLING_COUNTRY] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_BILLING_COUNTRY] = $replaced_value;
         return $this;
     }
 
@@ -266,7 +283,8 @@ class ChargingRequest
 
     public function set_sales_channel($value)
     {
-        $this->params[PZ_Constants::PARAMETER_SALES_CHANNEL] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_SALES_CHANNEL] = $replaced_value;
         return $this;
     }
 
@@ -278,7 +296,8 @@ class ChargingRequest
 
     public function set_item_vertical($value)
     {
-        $this->params[PZ_Constants::PARAMETER_ITEM_VERTICAL] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_ITEM_VERTICAL] = $replaced_value;
         return $this;
     }
 
@@ -301,19 +320,22 @@ class ChargingRequest
 
     public function set_product_info1($value)
     {
-        $this->params[PZ_Constants::PARAMETER_PRODUCT_INFO1] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_PRODUCT_INFO1] = $replaced_value;
         return $this;
     }
 
     public function set_product_info2($value)
     {
-        $this->params[PZ_Constants::PARAMETER_PRODUCT_INFO2] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_PRODUCT_INFO2] = $replaced_value;
         return $this;
     }
 
     public function set_product_info3($value)
     {
-        $this->params[PZ_Constants::PARAMETER_PRODUCT_INFO3] = $value;
+        $replaced_value = $this->replace_special_characters($value);
+        $this->params[PZ_Constants::PARAMETER_PRODUCT_INFO3] = $replaced_value;
         return $this;
     }
 
@@ -598,6 +620,13 @@ class ChargingRequest
     private function get_charging_api_url()
     {
         return $this->charging_api_url;
+    }
+
+    private function replace_special_characters($string)
+    {
+        $pattern = "/[^A-Za-z0-9 \\\._#!@$|;{},?^*':()+[\]=-]/";
+        $replacement = " ";
+        return preg_replace($pattern, $replacement, $string);
     }
 }
 
