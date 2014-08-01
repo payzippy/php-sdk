@@ -73,8 +73,7 @@ class ChargingRequest
 
     public function set_buyer_email_address($value)
     {
-        $replaced_value = $this->replace_special_characters($value);
-        $this->params[PZ_Constants::PARAMETER_BUYER_EMAIL_ADDRESS] = $replaced_value;
+        $this->params[PZ_Constants::PARAMETER_BUYER_EMAIL_ADDRESS] = $value;
         return $this;
     }
 
