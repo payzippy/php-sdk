@@ -40,8 +40,12 @@ $pz_charging->set_buyer_email_address($_POST["buyer_email_address"])
 ->set_transaction_amount($_POST[transaction_amount])
 ->set_payment_method($_POST["payment_method"])
 ->set_bank_name($_POST["bank_name"])
-->set_ui_mode($_POST["ui_mode"]);
+->set_ui_mode($_POST["ui_mode"])
+->set_item_total($_POST["item_total"])
+->set_item_vertical($_POST["item_vertical])
+->set_buyer_phone_no($_POST["buyer_phone_no"])
 //similarly set all the mandatory parameters as shown above
+//The parameters item_vertical,item_total and buyer_phone_no are now mandatory.Pass these parameters for all the transactions(both domestic and international).
 
 //and to set any optional parameter in the chargingrequest object
 ->set_buyer_phone_no($_POST["buyer_phone_number"])
